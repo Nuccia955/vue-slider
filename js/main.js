@@ -33,6 +33,14 @@ const app = new Vue({
         ],
         activeIndex: 1,
     },
+    created: function() {
+        setInterval(() => {
+            this.activeIndex++;
+            if(this.activeIndex > (this.slides.length - 1)) {
+                this.activeIndex = 0;
+            }
+        },3000)
+    },
     methods: {
         prevSlide() {
             this.activeIndex--;
@@ -48,7 +56,6 @@ const app = new Vue({
         },
         setSlide(currentIndex) {
             this.activeIndex = currentIndex;
-            
         },
     }
 })
